@@ -1,0 +1,16 @@
+.table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    border: thin solid #fff;
+}
+
+.table .table__name-column,
+.table .table__age-column {
+    border: thin solid #fff;
+    padding: 10px 20px;
+}
+
+.table:not(:last-child) {
+    border-bottom: #fff;
+}

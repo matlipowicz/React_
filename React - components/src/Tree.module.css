@@ -1,0 +1,8 @@
+.tree__list {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: left;
+    margin-left: 20px;
+    border-left: 2px dashed #000;
+}
