@@ -1,0 +1,58 @@
+.card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+
+    border: 2px solid #000;
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 1rem;
+}
+/*! Left side */
+.cardleft {
+}
+
+.cardleft__avatar {
+}
+
+.cardleft__img {
+    width: 15rem;
+    height: 15rem;
+    border: 4px solid #000;
+    border-radius: 100%;
+}
+
+/*! Right side */
+
+.cardright {
+}
+
+.cardright__fullName,
+.cardright__address,
+.cardright__town,
+.cardright__subRegion,
+.cardright__phoneNumber {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: space-between;
+    white-space: nowrap;
+}
+
+.cardright h4 {
+}
+
+.cardright__address {
+}
+
+.cardright__town {
+}
+
+.cardright__subRegion {
+}
+
+.cardright__phoneNumber {
+}
+
+.cardright__paragraph {
+}
