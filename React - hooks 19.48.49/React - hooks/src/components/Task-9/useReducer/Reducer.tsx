@@ -41,7 +41,10 @@ export const ACTIONS = {
 export default function cartReducer(state: typeof initialState, action: ActionType) {
     switch (action.type) {
         case ACTIONS.ADD_TO_CART:
-            return { ...state, cart: [...state.cart, { ...action.payload, quantity: 1 }] };
+            // Weryfikacja czy jest już w koszyku, żeby nie dublować
+            const isInCart = state.cart.find((item) => item.id === action.payload.id);
+            return !isInCart ? { ...state, cart: [...state.cart, { ...action.payload, quantity: 1 }] } : state;
+
         case ACTIONS.REMOVE_FROM_CART:
             return { ...state, cart: state.cart.filter((item: Product) => item.id !== action.payload.id) };
         case ACTIONS.INCREMENT:

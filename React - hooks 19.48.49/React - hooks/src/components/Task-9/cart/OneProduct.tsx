@@ -6,7 +6,7 @@ import cartReducer, { ACTIONS, initialState } from "../useReducer/Reducer";
 export const OneProduct = ({ products }: { products: Product[] }) => {
     const reducer = cartReducer;
     const [state, dispatch] = useReducer(reducer, initialState);
-    console.log(state);
+
     return (
         <>
             {products.map((product: Product) => {
