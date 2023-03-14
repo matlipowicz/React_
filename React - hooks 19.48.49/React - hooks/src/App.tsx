@@ -9,9 +9,9 @@ import { BusTable } from "./components/Task-1/bus-table_list";
 import { Posts } from "./components/Task-2-4/Posts";
 import { ExampleEvent } from "./components/Task-5/handle_event/ExampleEvent";
 import { RenderCard } from "./components/Task-6/card/RenderCard";
-import { Form } from "./components/Form";
+// import { Form } from "./components/Form";
 import { AsideMenu } from "./components/Task-8/menu/AsideMenu";
-import { Reducer } from "./components/Task-9/useReducer/Reducer";
+// import { Reducer } from "./components/Task-9/useReducer/Reducer";
 import { Cart } from "./components/Task-9/cart/Cart";
 
 function App() {

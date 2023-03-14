@@ -23,12 +23,10 @@ import productsData from "../../../mocks/products";
 
 type ActionType = { type: string; payload: any };
 interface InitialData {
-    products: Product[];
     cart: Product[];
 }
 
 export const initialState: InitialData = {
-    products: productsData,
     cart: [],
 };
 
@@ -38,29 +36,66 @@ export const ACTIONS = {
     INCREMENT: "increment",
     DECREMENT: "decrement",
 };
-export default function cartReducer(state: typeof initialState, action: ActionType) {
+
+// Reducer logic
+const addToCart = (state: InitialData, payload: Product) => {
+    const modifiedCart = [...state.cart];
+    const findProduct = modifiedCart.findIndex((item) => item.id === payload.id);
+
+    if (findProduct < 0) {
+        modifiedCart.push({ ...payload, quantity: 1 });
+        console.log("Adding item:", payload);
+    } else {
+        let modifiedItem = {
+            ...modifiedCart[findProduct],
+        };
+        modifiedItem.quantity++;
+        modifiedCart[findProduct] = modifiedItem;
+    }
+    console.log(modifiedCart);
+    return { ...state, cart: modifiedCart };
+};
+
+const removeFromCart = (state: InitialData, payload: Product) => {
+    const modifiedCart = [...state.cart];
+    const findProduct = modifiedCart.findIndex((item) => item.id === payload.id);
+
+    modifiedCart.splice(findProduct, 1);
+
+    return { ...state, cart: modifiedCart };
+};
+
+const increment = (state: InitialData) => {
+    return {
+        ...state,
+        cart: state.cart.filter((item) => {
+            return { ...item, quantity: item.quantity++ };
+        }),
+    };
+};
+
+const decrement = (state: InitialData) => {
+    return {
+        ...state,
+        cart: state.cart.filter((item) => {
+            return { ...item, quantity: item.quantity-- };
+        }),
+    };
+};
+
+export default function cartReducer(state: InitialData, action: ActionType): typeof initialState {
     switch (action.type) {
         case ACTIONS.ADD_TO_CART:
-            // Weryfikacja czy jest już w koszyku, żeby nie dublować
-            const isInCart = state.cart.find((item) => item.id === action.payload.id);
-            return !isInCart ? { ...state, cart: [...state.cart, { ...action.payload, quantity: 1 }] } : state;
+            return addToCart(state, action.payload);
 
         case ACTIONS.REMOVE_FROM_CART:
-            return { ...state, cart: state.cart.filter((item: Product) => item.id !== action.payload.id) };
+            return removeFromCart(state, action.payload);
+
         case ACTIONS.INCREMENT:
-            return {
-                ...state,
-                cart: state.cart.filter((item) => {
-                    return { ...item, quantity: item.quantity++ };
-                }),
-            };
+            return increment(state);
+
         case ACTIONS.DECREMENT:
-            return {
-                ...state,
-                cart: state.cart.filter((item) => {
-                    return { ...item, quantity: item.quantity-- };
-                }),
-            };
+            return decrement(state);
 
         default:
             return state;
