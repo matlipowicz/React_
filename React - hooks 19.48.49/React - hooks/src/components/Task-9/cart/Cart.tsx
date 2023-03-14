@@ -18,7 +18,9 @@ export const Cart = () => {
     return (
         <div className={style["wrapper"]}>
             <div className={style["cart"]}>
-                <OneProduct products={productsData} />
+                {productsData.map((product, index) => {
+                    return <OneProduct products={product} key={product.id} index={index} />;
+                })}
             </div>
         </div>
     );
