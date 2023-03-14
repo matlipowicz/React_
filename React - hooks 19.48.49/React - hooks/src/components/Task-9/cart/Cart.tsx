@@ -1,6 +1,9 @@
 import style from "./Cart.module.css";
 import { OneProduct } from "./OneProduct";
 import { productsData } from "../../../mocks/products";
+import { Action } from "@remix-run/router";
+import { InitialData } from "../useReducer/Reducer";
+import { Product } from "../../../mocks/products";
 
 //TODO
 
@@ -14,12 +17,13 @@ import { productsData } from "../../../mocks/products";
 
 */
 
-export const Cart = () => {
+export const Cart = ({ state, dispatch }: { state: InitialData; dispatch: React.Dispatch<any> }) => {
     return (
         <div className={style["wrapper"]}>
             <div className={style["cart"]}>
-                {productsData.map((product, index) => {
-                    return <OneProduct products={product} key={product.id} index={index} />;
+                {productsData.map((product) => {
+                    // @ts-ignore
+                    return <OneProduct products={product} key={product.id} dispatch={dispatch} state={state} />;
                 })}
             </div>
         </div>

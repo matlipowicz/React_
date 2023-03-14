@@ -11,10 +11,16 @@ import { ExampleEvent } from "./components/Task-5/handle_event/ExampleEvent";
 import { RenderCard } from "./components/Task-6/card/RenderCard";
 // import { Form } from "./components/Form";
 import { AsideMenu } from "./components/Task-8/menu/AsideMenu";
-// import { Reducer } from "./components/Task-9/useReducer/Reducer";
+
+import cartReducer, { ACTIONS, initialState, InitialData } from "./components/Task-9/useReducer/Reducer";
+import Reducer from "./components/Task-9/useReducer/Reducer";
 import { Cart } from "./components/Task-9/cart/Cart";
+import { useReducer } from "react";
 
 function App() {
+    const reducer = cartReducer;
+    const [state, dispatch] = useReducer(reducer, initialState);
+
     return (
         <>
             {/* <Hooks /> */}
@@ -32,7 +38,8 @@ function App() {
             {/* <AsideMenu /> */}
             {/* //! Ex.9 */}
             {/* <Reducer /> */}
-            <Cart />
+
+            <Cart state={state} dispatch={dispatch} />
             {/* //* Libraries */}
             {/* <Form /> */}
         </>
