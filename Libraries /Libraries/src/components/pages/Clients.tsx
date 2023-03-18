@@ -1,11 +1,19 @@
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import ClientCard from "../clients_form/card/ClientCard";
-import { cards } from "../../mocks/cards";
 import { GridUserWrapper } from ".././clients_form/card/GridUser";
 import { Link, Outlet } from "react-router-dom";
 import { ClientDetails } from "../clients_form/card/ClientDetails";
+import { FormValuesYup, getAllClients, ClientCard as ClientCardType } from "../../api/Clients";
 
 const Clients = () => {
+    //TODO: pobrać wszystkich klientów
+    const [cards, setCards] = useState<ClientCardType[]>([]);
+
+    useEffect(() => {
+        getAllClients().then((data) => setCards(data));
+    }, []);
+
     return (
         <>
             <GridUserWrapper>
@@ -19,6 +27,7 @@ const Clients = () => {
                         </div>
                     );
                 })}
+                <Link to="add">Add client</Link>
             </GridUserWrapper>
         </>
     );

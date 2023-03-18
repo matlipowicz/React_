@@ -4,7 +4,11 @@ import { AsideMenu } from "./components/aside_menu/AsideMenu";
 import { Clients, Orders, Invoices, Posts, Home } from "./components/pages/CombinedPages";
 import ClientCard from "./components/clients_form/card/ClientCard";
 import { ClientDetails } from "./components/clients_form/card/ClientDetails";
-import { Form } from "./components/clients_form/form/Form";
+import { AddUserForm } from "./components/clients_form/form/AddUserForm";
+import { OrdersForm } from "./components/clients_form/form/OrdersForm";
+import { FakeRegister } from "./components/register/FakeRegister";
+import { FakeLogin } from "./components/login/FakeLogin";
+import { EditUser } from "./components/clients_form/edit_user/Edit";
 
 function App() {
     //? Możemy tutaj uzyć useRoutes()? Jeżeli są jakieś chlid-y i jest to generowane z tablicy, to chyba tak?
@@ -13,19 +17,21 @@ function App() {
         <BrowserRouter>
             <AsideMenu />
             <Routes>
-                <Route path="/" element={<div>Home</div>} />
+                <Route path="/" element={<FakeLogin />} />
                 <Route path="/clients">
                     <Route index element={<Clients />} />
-                    <Route path="add" element={<Form />} />
+                    <Route path="add" element={<AddUserForm />} />
                     <Route path=":clientId">
                         <Route index element={<ClientDetails />} />
-                        <Route path="edit" element={<div>Edit</div>} />
+                        <Route path="edit" element={<EditUser />} />
                     </Route>
                 </Route>
-                <Route path="/orders" element={<Orders />}>
-                    <Route path=":orderId" />
-                    <Route path="add" element={<div className="page">Add order</div>} />
+                <Route path="/orders">
+                    <Route index element={<Orders />} />
+                    <Route path="add" element={<OrdersForm />} />
+                    <Route path=":orderId" element={<div>User Details</div>} />
                 </Route>
+                <Route path="/register" element={<FakeRegister />} />
                 <Route path="/invoices" element={<Invoices />} />
                 <Route path="/posts" element={<Posts />} />
                 <Route path="*" element={<div className="page">404 - Not Found</div>} />

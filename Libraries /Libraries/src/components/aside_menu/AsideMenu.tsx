@@ -33,9 +33,7 @@ export const AsideMenu = () => {
                         <button className="closeBtn" onClick={toggleSideBarInactive}>
                             X
                         </button>
-                        <Link to={"/"}>
-                            <Home />
-                        </Link>
+                        <Home />
                         {menuData.map((item) => {
                             return (
                                 <div key={item.linkName} style={{ display: "flex", alignItems: "center", gap: "15px" }}>
@@ -48,6 +46,10 @@ export const AsideMenu = () => {
                                 </div>
                             );
                         })}
+                        <Link to="/register" style={{ justifyContent: "left", display: "flex" }}>
+                            Register
+                        </Link>
+                        ;
                     </ul>
                 </nav>
             </aside>
