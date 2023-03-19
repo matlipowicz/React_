@@ -3,12 +3,12 @@ import { useState, useEffect } from "react";
 import { cards } from "../../../mocks/cards";
 import { LeftCardSide } from "./LeftCardSide";
 import { RightCardSide } from "./RightCardSide";
-import { UserData, UserInfoProps } from "./LeftCardSide";
+import { UserInfo, UserInfoProps } from "./LeftCardSide";
 import { Link, useParams } from "react-router-dom";
 import { ClientDetails } from "./ClientDetails";
-import { ClientCard as ClientCardType } from "src/api/Clients";
+import { ClientCard as ClientCardType } from "src/api/clients";
 
-export default function ClientCard(cards: any) {
+export default function ClientCard({ cards }: { cards: UserInfo }) {
     return (
         <>
             <div className={style.card} key={cards.id}>

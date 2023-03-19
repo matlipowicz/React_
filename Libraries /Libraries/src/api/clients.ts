@@ -32,6 +32,34 @@ export const addClient = async (values: FormValuesYup) => {
     throw new Error("Can't add client");
 };
 
+export const editClient = async (values: FormValuesYup, id: string) => {
+    const response = await fetch(`http://localhost:3000/clients/${id}`, {
+        method: "PUT",
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+        body: JSON.stringify(values),
+    });
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    }
+
+    throw new Error("Can't edit client");
+};
+
+export const deleteClient = async (values: FormValuesYup, id: string) => {
+    const response = await fetch(`http://localhost:3000/clients/${id}`, {
+        method: "DELETE",
+        headers: { "Content-type": "application/json;charset=UTF-8" },
+        body: JSON.stringify(values),
+    });
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    }
+
+    throw new Error("Can't delete client");
+};
+
 export const getAllClients = async () => {
     const response = await fetch("http://localhost:3000/clients");
     const data = await response.json();

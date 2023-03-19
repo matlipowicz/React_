@@ -2,8 +2,9 @@ import { TextField, Box } from "@mui/material";
 import { useFormik, FormikProps } from "formik";
 import { object, InferType, string, number } from "yup";
 import style from "./Edit.module.css";
-import { FormValuesYup, schema, addClient } from "../../../api/Clients";
-import { useState } from "react";
+import { FormValuesYup, schema, editClient, getClient } from "../../../api/clients";
+import { useState, useEffect, useRef } from "react";
+import { Link, useParams } from "react-router-dom";
 
 const FormInput = ({ inputType, formik, label }: { inputType: keyof FormValuesYup; formik: FormikProps<FormValuesYup>; label: string }) => {
     return (
@@ -17,12 +18,12 @@ const FormInput = ({ inputType, formik, label }: { inputType: keyof FormValuesYu
             value={formik.values[inputType]}
             error={Boolean(formik.touched[inputType]) && Boolean(formik.errors[inputType])}
             helperText={formik.touched[inputType] && formik.errors[inputType] ? formik.errors[inputType] : null}
-        />
+        >
+            name
+        </TextField>
     );
 };
 export const EditUser = () => {
-    //TODO: get po id usera z params
-
     const [initialValues, setInitialValues] = useState<FormValuesYup>({
         name: "",
         surname: "",
@@ -33,12 +34,19 @@ export const EditUser = () => {
         imgSrc: "",
         phoneNumber: "",
     });
+    const { clientId } = useParams();
+
+    useEffect(() => {
+        if (clientId) {
+            getClient(clientId).then((data) => setInitialValues(data));
+        }
+    }, []);
 
     const formik = useFormik<FormValuesYup>({
         initialValues: initialValues,
         enableReinitialize: true,
         onSubmit: (values: FormValuesYup) => {
-            // update(values)
+            editClient(values, clientId as string);
         },
         validationSchema: schema,
     });

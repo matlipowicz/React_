@@ -2,7 +2,7 @@ import style from "./Card.module.css";
 import { useState, useEffect } from "react";
 import { cards } from "../../../mocks/cards";
 import { Link, useParams } from "react-router-dom";
-import { FormValuesYup, getAllClients, ClientCard as ClientCardType, getClient } from "../../../api/Clients";
+import { FormValuesYup, getAllClients, ClientCard as ClientCardType, getClient, deleteClient } from "../../../api/clients";
 
 export const ClientDetails = () => {
     //? How to retrieve id from the card component (passing destructured id value will be undefined)
@@ -14,6 +14,13 @@ export const ClientDetails = () => {
         setEdit(!edit);
     };
 
+    //? Jak zrobić żeby nie wyświetlał się już na user details, a nie dopiero po przejsciu na strone z kartami
+    const eraseUser = () => {
+        if (user) {
+            deleteClient(user, clientId as string);
+        }
+    };
+
     useEffect(() => {
         if (clientId) {
             getClient(clientId).then((data) => setUser(data));
@@ -23,9 +30,10 @@ export const ClientDetails = () => {
     if (!user) {
         return <p>Loading...</p>;
     }
+
     return (
         <>
-            <div className={style["card__user"]} key={user.id}>
+            <div className={style["card__user"]} key={user?.id}>
                 <p className={style["card__user--name"]}>
                     <strong>Name: </strong>
                     {user.name}
@@ -53,9 +61,14 @@ export const ClientDetails = () => {
                     <strong>Phone number:</strong> {user.phoneNumber}
                 </p>
 
-                <Link to="edit" onClick={editUser}>
-                    <button className="card__user-edit-btn">Edit</button>
-                </Link>
+                <div>
+                    <Link to="edit" onClick={editUser}>
+                        <button className="card__user-edit-btn">Edit</button>
+                    </Link>
+                    <button className="card__user-delete-btn" onClick={eraseUser}>
+                        Delete
+                    </button>
+                </div>
             </div>
         </>
     );
