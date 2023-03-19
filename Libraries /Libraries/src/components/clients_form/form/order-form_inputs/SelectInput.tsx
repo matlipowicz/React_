@@ -1,8 +1,9 @@
 import { TextField, Box, OutlinedInput } from "@mui/material";
-import { useFormik, FormikProps } from "formik";
 import MenuItem from "@mui/material/MenuItem";
-import { SelectValues } from "../OrdersForm";
-import { cards } from "../../../../mocks/cards";
+import { useFormik, FormikProps } from "formik";
+import { SelectValues } from "../../../../api/orders";
+import { ClientCard, getAllClients } from "../../../../api/clients";
+import { useState, useEffect } from "react";
 
 export const SelectInput = ({
     phone,
@@ -15,6 +16,12 @@ export const SelectInput = ({
     label: string;
     type: keyof SelectValues;
 }) => {
+    const [user, setUser] = useState<ClientCard[]>([]);
+
+    useEffect(() => {
+        getAllClients().then((data) => setUser(data));
+    }, []);
+
     return (
         <Box width="250px">
             <TextField
@@ -32,7 +39,7 @@ export const SelectInput = ({
                     <em>None</em>
                 </MenuItem>
 
-                {cards.map((user) => {
+                {user.map((user) => {
                     return <MenuItem value={user.phoneNumber} key={user.id}>{`${user.name} ${user.surname}`}</MenuItem>;
                 })}
             </TextField>

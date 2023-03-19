@@ -1,5 +1,7 @@
 import { object, InferType, string, number } from "yup";
 
+//! Client functionality
+
 export type FormValuesYup = InferType<typeof schema>;
 
 export type ClientCard = FormValuesYup & { id: number };

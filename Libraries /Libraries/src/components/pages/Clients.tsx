@@ -15,6 +15,7 @@ const Clients = () => {
     useEffect(() => {
         getAllClients().then((data) => setCards(data));
     }, []);
+    console.log(cards);
 
     return (
         <>

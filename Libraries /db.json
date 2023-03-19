@@ -1,61 +1,66 @@
 {
-  "cards": [
-    {
-      "id": 1,
-      "imgSrc": "https://images.unsplash.com/photo-1661869535393-872dea2d9f8d?ixlib=rb-1.2.1&ix''=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-      "name": "Zigniew",
-      "surname": "Herbert",
-      "street": "TestStreet",
-      "postCode": "00-123",
-      "town": "Town",
-      "subRegion": "Region",
-      "phoneNumber": "+48 111 456 789"
-    }
-  ],
-  "clients": [
-    {
-      "name": "asdas",
-      "surname": "asdas",
-      "street": "asdasd",
-      "postalCode": "12-312",
-      "town": "tasdaa",
-      "subRegion": "asfafa",
-      "imgSrc": "tasta",
-      "phoneNumber": "+48 123 123 123",
-      "id": 5
-    },
-    {
-      "name": "ttt",
-      "surname": "teeta",
-      "street": "teafasf",
-      "postalCode": "12-123",
-      "town": "Test",
-      "subRegion": "",
-      "imgSrc": "",
-      "phoneNumber": "+48 232 232 233",
-      "id": 6
-    },
-    {
-      "name": "Mateusz",
-      "surname": "Lipowicz",
-      "street": "Dębowa.4",
-      "postalCode": "42-360",
-      "town": "Poraj",
-      "subRegion": "",
-      "imgSrc": "",
-      "phoneNumber": "+48 796437090",
-      "id": 7
-    },
-    {
-      "name": "Mateusz",
-      "surname": "Lipowicz",
-      "street": "Dębowa.4",
-      "postalCode": "42-360",
-      "town": "Poraj",
-      "subRegion": "",
-      "imgSrc": "",
-      "phoneNumber": "+48 796437090",
-      "id": 8
-    }
-  ]
+    "cards": [
+        {
+            "id": 1,
+            "imgSrc": "https://images.unsplash.com/photo-1661869535393-872dea2d9f8d?ixlib=rb-1.2.1&ix''=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+            "name": "Zigniew",
+            "surname": "Herbert",
+            "street": "TestStreet",
+            "postCode": "00-123",
+            "town": "Town",
+            "subRegion": "Region",
+            "phoneNumber": "+48 111 456 789"
+        }
+    ],
+    "clients": [
+        {
+            "name": "Paulina",
+            "surname": "Szałaj",
+            "street": "Reduta. 11/11",
+            "postalCode": "31-421",
+            "town": "Kraków",
+            "subRegion": "",
+            "imgSrc": "",
+            "phoneNumber": "+48 797 090 551",
+            "id": 1
+        }
+    ],
+    "orders": [
+        {
+            "id": 1,
+            "name": "Paulina",
+            "surname": "Szałaj",
+            "phone": "+48 797 090 551",
+            "orderQuantity": "5",
+            "orderTitle": "Buty - Nike Jordan SB",
+            "orderContent": "Modne buty"
+        },
+        {
+            "id": 2,
+            "name": "Mateusz",
+            "surname": "Lipowicz",
+            "phone": "+48 796 437 090",
+            "orderQuantity": "1",
+            "orderTitle": "Buty - Nike Jordan 1",
+            "orderContent": "Wysokie buty"
+        },
+        {
+            "id": 3,
+            "name": "Marcin",
+            "surname": "Lipowicz",
+            "phone": "+48 226 437 090",
+            "orderQuantity": "1",
+            "orderTitle": "Buty - Nike Jordan 1",
+            "orderContent": "Wysokie buty"
+        },
+        {
+            "id": 4,
+            "name": "Mateusz",
+            "surname": "Lipowicz",
+            "phone": "+48 326 411 030",
+            "orderQuantity": "2",
+            "orderTitle": "Buty - Nike Jordan 1",
+            "orderContent": "Wysokie buty"
+        }
+    ]
 }

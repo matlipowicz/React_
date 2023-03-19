@@ -8,27 +8,8 @@ import { ReactEventHandler, useState } from "react";
 import { SelectInput } from "./order-form_inputs/SelectInput";
 import { TextInput } from "./order-form_inputs/TextInput";
 import { QuantityInput } from "./order-form_inputs/QuantityInput";
+import { SelectValues, orderValidationSchema } from "../../../api/orders";
 
-export type SelectValues = {
-    phoneNumber: string;
-    orderContent: string;
-    orderQuantity: string;
-    orderTitle: string;
-};
-
-export type User = InferType<typeof orderValidationSchema>;
-
-const orderValidationSchema = object({
-    phoneNumber: string().required(),
-    fullName: string().optional(),
-    orderContent: string()
-        .required()
-        .matches(/^[a-zA-Z]{5,}$/),
-    orderTitle: string()
-        .required()
-        .matches(/^[a-zA-Z]{10,}$/),
-    orderQuantity: number().integer().required().min(1).max(15),
-});
 export const OrdersForm = () => {
     const formik = useFormik<SelectValues>({
         initialValues: {

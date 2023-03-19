@@ -9,6 +9,7 @@ import { OrdersForm } from "./components/clients_form/form/OrdersForm";
 import { FakeRegister } from "./components/register/FakeRegister";
 import { FakeLogin } from "./components/login/FakeLogin";
 import { EditUser } from "./components/clients_form/edit_user/Edit";
+import { OrderDetails } from "./components/orders/OrderDetails";
 
 function App() {
     //? Możemy tutaj uzyć useRoutes()? Jeżeli są jakieś chlid-y i jest to generowane z tablicy, to chyba tak?
@@ -29,7 +30,8 @@ function App() {
                 <Route path="/orders">
                     <Route index element={<Orders />} />
                     <Route path="add" element={<OrdersForm />} />
-                    <Route path=":orderId" element={<div>User Details</div>} />
+                    {/* @ts-ignore */}
+                    <Route path=":orderId" element={<OrderDetails />} />
                 </Route>
                 <Route path="/register" element={<FakeRegister />} />
                 <Route path="/invoices" element={<Invoices />} />
