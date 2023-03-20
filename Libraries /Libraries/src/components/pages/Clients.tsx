@@ -1,11 +1,16 @@
-import { useParams } from "react-router-dom";
-import ClientCard from "../clients_form/card/ClientCard";
-import { cards } from "../../mocks/cards";
-import { GridUserWrapper } from ".././clients_form/card/GridUser";
+import { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
-import { ClientDetails } from "../clients_form/card/ClientDetails";
+import { getAllClients, ClientCard as ClientCardType } from "src/api/clients";
+import { GridUserWrapper } from "src/components/clients_form/card/GridUser";
+import ClientCard from "src/components/clients_form/card/ClientCard";
 
 const Clients = () => {
+    const [cards, setCards] = useState<ClientCardType[]>([]);
+
+    useEffect(() => {
+        getAllClients().then((data) => setCards(data));
+    }, []);
+
     return (
         <>
             <GridUserWrapper>
@@ -19,6 +24,7 @@ const Clients = () => {
                         </div>
                     );
                 })}
+                <Link to="add">Add client</Link>
             </GridUserWrapper>
         </>
     );

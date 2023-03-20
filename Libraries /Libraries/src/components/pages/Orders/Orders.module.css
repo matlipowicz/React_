@@ -1,0 +1,40 @@
+.order__card {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: auto-fit;
+    width: 100vw;
+    height: 250px;
+    padding: 2rem;
+    gap: 1rem;
+}
+
+.order__card--user {
+    border: thin solid #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.order__card--details {
+    text-align: left;
+}
+
+/*! Filter input */
+
+.input__filter {
+    background-color: rgb(209, 209, 209);
+    border: none;
+    border: thin solid #000;
+    padding: 6px;
+    width: 25%;
+}
+
+.form__filter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}

@@ -1,12 +1,9 @@
 import { useReducer } from "react";
 import style from "./Cart.module.css";
 import { Product } from "../../../mocks/products";
-import cartReducer, { ACTIONS, initialState } from "../useReducer/Reducer";
+import cartReducer, { ACTIONS, initialState, InitialData } from "../useReducer/Reducer";
 
-export const OneProduct = ({ products, index }: { products: Product; index: number }) => {
-    const reducer = cartReducer;
-    const [state, dispatch] = useReducer(reducer, initialState);
-    console.log(state);
+export const OneProduct = ({ products, state, dispatch }: { products: Product; state: InitialData; dispatch: React.Dispatch<any> }) => {
     return (
         <>
             <section className="cart__left" key={products.id}>
@@ -22,7 +19,7 @@ export const OneProduct = ({ products, index }: { products: Product; index: numb
                             <button onClick={() => dispatch({ type: ACTIONS.REMOVE_FROM_CART, payload: products })}>Delete</button>
                             <button onClick={() => dispatch({ type: ACTIONS.INCREMENT, payload: state.cart })}>+</button>
 
-                            {state.cart.map((item) => {
+                            {state.cart.map((item: any) => {
                                 return item.id === products.id ? <p key={item.id}>{item.quantity}</p> : null;
                             })}
 

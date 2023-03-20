@@ -1,13 +1,14 @@
 import style from "./Card.module.css";
+
 export interface UserInfo {
-    id: number;
-    imgSrc: string;
+    id?: number;
     name: string;
     surname: string;
-    postCode: string;
+    postalCode: string;
     street: string;
     town: string;
-    subRegion: string;
+    subRegion?: string | undefined;
+    imgSrc?: string | undefined;
     phoneNumber: string;
 }
 
@@ -17,7 +18,7 @@ export interface UserInfoProps {
         imgSrc: string;
         name: string;
         surname: string;
-        postCode: string;
+        postalCode: string;
         street: string;
         town: string;
         subRegion: string;

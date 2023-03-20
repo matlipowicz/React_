@@ -1,8 +1,8 @@
-import style from "../clients_form/card/Card.module.css";
-import { menuData } from "../../mocks/menu";
-import { useState, useEffect } from "react";
-import { Link, Outlet } from "react-router-dom";
-import Home from "../pages/Home";
+import style from "src/components/clients_form/card/Card.module.css";
+import { menuData } from "src/mocks/menu";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import Home from "src/components/pages/Home";
 // Wróć do zadania z menu z poprzedniego zestawu (komponenty) i dodaj przycisk umożliwiający jego zwijanie i rozwijanie, wykorzystaj useState
 
 export const AsideMenu = () => {
@@ -33,9 +33,7 @@ export const AsideMenu = () => {
                         <button className="closeBtn" onClick={toggleSideBarInactive}>
                             X
                         </button>
-                        <Link to={"/"}>
-                            <Home />
-                        </Link>
+                        <Home />
                         {menuData.map((item) => {
                             return (
                                 <div key={item.linkName} style={{ display: "flex", alignItems: "center", gap: "15px" }}>
@@ -48,6 +46,10 @@ export const AsideMenu = () => {
                                 </div>
                             );
                         })}
+                        <Link to="/register" style={{ justifyContent: "left", display: "flex" }}>
+                            Register
+                        </Link>
+                        ;
                     </ul>
                 </nav>
             </aside>

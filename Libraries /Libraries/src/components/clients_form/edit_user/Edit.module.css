@@ -1,0 +1,12 @@
+.user__form {
+    background: rgb(209, 209, 209);
+    border-radius: 5px;
+    box-shadow: 0px 0px 30px rgb(0, 0, 0);
+}
+.user__btn--container {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    padding: 10px;
+    height: 100%;
+}

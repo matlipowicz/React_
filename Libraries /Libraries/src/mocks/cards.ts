@@ -8,7 +8,7 @@ export const cards = [
         postCode: "00-123",
         town: "Town",
         subRegion: "Region",
-        phoneNumber: "+48 123 456 789",
+        phoneNumber: "+48 111 456 789",
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ export const cards = [
         postCode: "00-123",
         town: "Town",
         subRegion: "Region",
-        phoneNumber: "+48 123 456 789",
+        phoneNumber: "+48 222 456 789",
     },
     {
         id: 3,
@@ -30,6 +30,6 @@ export const cards = [
         postCode: "00-123",
         town: "Town",
         subRegion: "Region",
-        phoneNumber: "+48 123 456 789",
+        phoneNumber: "+48 333 456 789",
     },
 ];

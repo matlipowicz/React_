@@ -21,8 +21,8 @@ import productsData from "../../../mocks/products";
 
 */
 
-type ActionType = { type: string; payload: any };
-interface InitialData {
+type ActionType = { type: string; payload: Product };
+export interface InitialData {
     cart: Product[];
 }
 
@@ -44,7 +44,7 @@ const addToCart = (state: InitialData, payload: Product) => {
 
     if (findProduct < 0) {
         modifiedCart.push({ ...payload, quantity: 1 });
-        console.log("Adding item:", payload);
+        console.log(modifiedCart);
     } else {
         let modifiedItem = {
             ...modifiedCart[findProduct],
@@ -52,8 +52,8 @@ const addToCart = (state: InitialData, payload: Product) => {
         modifiedItem.quantity++;
         modifiedCart[findProduct] = modifiedItem;
     }
-    console.log(modifiedCart);
-    return { ...state, cart: modifiedCart };
+    console.log({ cart: modifiedCart });
+    return { cart: modifiedCart };
 };
 
 const removeFromCart = (state: InitialData, payload: Product) => {
@@ -62,7 +62,7 @@ const removeFromCart = (state: InitialData, payload: Product) => {
 
     modifiedCart.splice(findProduct, 1);
 
-    return { ...state, cart: modifiedCart };
+    return { cart: modifiedCart };
 };
 
 const increment = (state: InitialData) => {

@@ -1,99 +1,66 @@
 {
-  "clients": [
-    {
-      "id": 1,
-      "imgSrc": "https://images.unsplash.com/photo-1661869535393-872dea2d9f8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-      "name": "Zigniew",
-      "surname": "Herbert",
-      "street": "TestStreet",
-      "postCode": "00-123",
-      "town": "Town",
-      "subRegion": "Region",
-      "phoneNumber": "+48 123 456 789"
-    },
-    {
-      "id": 2,
-      "imgSrc": "https://images.unsplash.com/photo-1661869535393-872dea2d9f8d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
-      "name": "Henryk",
-      "surname": "Sienkiewicz",
-      "street": "TestStreet",
-      "postCode": "00-123",
-      "town": "Town",
-      "subRegion": "Region",
-      "phoneNumber": "+48 123 456 789"
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "id": 7
-    },
-    {
-      "name": "",
-      "surname": "",
-      "street": "",
-      "postCode": "",
-      "town": "",
-      "subRegion": "",
-      "imgSrc": "",
-      "phoneNumber": "",
-      "id": 8
-    },
-    {
-      "name": "",
-      "surname": "",
-      "street": "",
-      "postCode": "",
-      "town": "",
-      "subRegion": "",
-      "imgSrc": "",
-      "phoneNumber": "",
-      "id": 9
-    },
-    {
-      "name": "",
-      "surname": "",
-      "street": "",
-      "postCode": "",
-      "town": "",
-      "subRegion": "",
-      "imgSrc": "",
-      "phoneNumber": "",
-      "id": 10
-    },
-    {
-      "name": "",
-      "surname": "",
-      "street": "",
-      "postCode": "",
-      "town": "",
-      "subRegion": "",
-      "imgSrc": "",
-      "phoneNumber": "",
-      "input__name": "Test",
-      "id": 11
-    },
-    {
-      "name": "",
-      "surname": "",
-      "street": "",
-      "postCode": "",
-      "town": "",
-      "subRegion": "",
-      "imgSrc": "",
-      "phoneNumber": "",
-      "input__name": "Mateusz",
-      "input__surname": "+48 796437090",
-      "id": 12
-    }
-  ]
+    "cards": [
+        {
+            "id": 1,
+            "imgSrc": "https://images.unsplash.com/photo-1661869535393-872dea2d9f8d?ixlib=rb-1.2.1&ix''=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+            "name": "Zigniew",
+            "surname": "Herbert",
+            "street": "TestStreet",
+            "postCode": "00-123",
+            "town": "Town",
+            "subRegion": "Region",
+            "phoneNumber": "+48 111 456 789"
+        }
+    ],
+    "clients": [
+        {
+            "name": "Paulina",
+            "surname": "Szałaj",
+            "street": "Reduta. 11/11",
+            "postalCode": "31-421",
+            "town": "Kraków",
+            "subRegion": "",
+            "imgSrc": "",
+            "phoneNumber": "+48 797 090 551",
+            "id": 1
+        }
+    ],
+    "orders": [
+        {
+            "id": 1,
+            "name": "Paulina",
+            "surname": "Szałaj",
+            "phone": "+48 797 090 551",
+            "orderQuantity": "5",
+            "orderTitle": "Buty - Nike Jordan SB",
+            "orderContent": "Modne buty"
+        },
+        {
+            "id": 2,
+            "name": "Mateusz",
+            "surname": "Lipowicz",
+            "phone": "+48 796 437 090",
+            "orderQuantity": "1",
+            "orderTitle": "Buty - Nike Jordan 1",
+            "orderContent": "Wysokie buty"
+        },
+        {
+            "id": 3,
+            "name": "Marcin",
+            "surname": "Lipowicz",
+            "phone": "+48 226 437 090",
+            "orderQuantity": "1",
+            "orderTitle": "Buty - Nike Jordan 1",
+            "orderContent": "Wysokie buty"
+        },
+        {
+            "id": 4,
+            "name": "Mateusz",
+            "surname": "Lipowicz",
+            "phone": "+48 326 411 030",
+            "orderQuantity": "2",
+            "orderTitle": "Buty - Nike Jordan 1",
+            "orderContent": "Wysokie buty"
+        }
+    ]
 }
