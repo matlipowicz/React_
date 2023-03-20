@@ -1,7 +1,6 @@
-import { TextField, Box, OutlinedInput } from "@mui/material";
-import { useFormik, FormikProps } from "formik";
-import MenuItem from "@mui/material/MenuItem";
-import { SelectValues } from "../OrdersForm";
+import { TextField, Box } from "@mui/material";
+import { FormikProps } from "formik";
+import { SelectValues } from "src/api/orders";
 
 export const QuantityInput = ({ type, formik, label }: { label: string; type: keyof SelectValues; formik: FormikProps<SelectValues> }) => {
     return (

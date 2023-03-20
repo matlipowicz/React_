@@ -1,4 +1,4 @@
-import { object, InferType, string, number } from "yup";
+import { object, InferType, string } from "yup";
 
 //! Client functionality
 

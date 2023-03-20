@@ -1,8 +1,7 @@
 import { TextField, Box } from "@mui/material";
+import { FormValuesYup, schema, addClient } from "src/api/clients";
 import { useFormik, FormikProps } from "formik";
-import { object, InferType, string, number } from "yup";
 import style from "./Form.module.css";
-import { FormValuesYup, schema, addClient } from "../../../api/clients";
 
 const FormInput = ({ inputType, formik, label }: { inputType: keyof FormValuesYup; formik: FormikProps<FormValuesYup>; label: string }) => {
     return (

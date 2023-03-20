@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getOrder, Order } from "../../api/orders";
-import style from "../pages/Orders/Orders.module.css";
+import { getOrder, Order } from "src/api/orders";
+import { OrderData } from "./OrderData";
+import style from "src/components/pages/Orders/Orders.module.css";
 
 export const OrderDetails = () => {
     const [singleOrder, setSingleOrder] = useState<Order | null>(null);
+    const [toggle, setToggle] = useState<boolean>(false);
     const { orderId } = useParams();
     let id = Number(orderId);
+
+    const handleToggle = () => [setToggle(!toggle)];
+
     useEffect(() => {
         if (id) {
             getOrder(id).then((data) => setSingleOrder(data));
@@ -18,14 +23,13 @@ export const OrderDetails = () => {
             return (
                 <div className={style["order__card--details"]}>
                     <div key={singleOrder.id}>
-                        <div style={{ display: "flex", gap: "5px" }}>
-                            Imię i Nazwisko:
-                            <p>{singleOrder.name}</p>
-                            <p>{singleOrder.surname}</p>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "5px", width: "300px" }}>
+                            <p>Imię: {singleOrder.name}</p>
+                            <p>Nazwisko: {singleOrder.surname}</p>
+                            <button onClick={handleToggle}>Order Details</button>
                         </div>
-                        <p>Zamówiono: {singleOrder.orderTitle}</p>
-                        <p>Treść zamówienia: {singleOrder.orderContent}</p>
-                        <p>Ilość: {singleOrder.orderQuantity}</p>
+
+                        {toggle && singleOrder.id === id && <OrderData data={singleOrder} />}
                     </div>
                 </div>
             );

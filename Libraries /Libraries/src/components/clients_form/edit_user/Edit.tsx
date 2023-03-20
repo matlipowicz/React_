@@ -1,10 +1,9 @@
 import { TextField, Box } from "@mui/material";
 import { useFormik, FormikProps } from "formik";
-import { object, InferType, string, number } from "yup";
 import style from "./Edit.module.css";
-import { FormValuesYup, schema, editClient, getClient } from "../../../api/clients";
-import { useState, useEffect, useRef } from "react";
-import { Link, useParams } from "react-router-dom";
+import { FormValuesYup, schema, editClient, getClient } from "src/api/clients";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const FormInput = ({ inputType, formik, label }: { inputType: keyof FormValuesYup; formik: FormikProps<FormValuesYup>; label: string }) => {
     return (

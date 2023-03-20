@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import style from "./Orders.module.css";
-import { getAllOrders, getOrderByUser, getOrderByFilter, Order } from "../../../api/orders";
+import { getAllOrders, getOrderByUser, getOrderByFilter, Order } from "src/api/orders";
 const Orders = () => {
     const [userOrder, setUserOrder] = useState<Order[]>([]);
     const [searchOrder, setSearchedOrder] = useState("");
@@ -12,7 +12,7 @@ const Orders = () => {
     }, []);
 
     //* Search order
-    const searchOrders = (e: any) => {
+    const searchOrders = (e: React.FormEvent) => {
         e.preventDefault();
         getOrderByUser(searchOrder).then((data) => {
             setUserOrder(data);
@@ -20,17 +20,17 @@ const Orders = () => {
         });
     };
     //* Filter order
-    const filterOrders = (e: any) => {
-        getOrderByFilter(e.target.value).then((data) => {
-            setFilteredOrder(e.target.value);
+    const filterOrders = (e: React.FormEvent) => {
+        const target = e.target as HTMLSelectElement;
+
+        getOrderByFilter(target.value).then((data) => {
+            setFilteredOrder(target.value);
             setUserOrder(data);
         });
-
-        console.log(e.target.value);
     };
 
     //* Reset order
-    const resetOrders = (e: any) => {
+    const resetOrders = () => {
         getAllOrders();
         setFilteredOrder("");
     };
@@ -64,14 +64,13 @@ const Orders = () => {
             <div className={style["order__card"]}>
                 {userOrder.map((user) => {
                     return (
-                        <div key={user.id} className={style["order__card--user"]}>
-                            <p>{user.phone}</p>
-                            <p>{user.orderTitle}</p>
-                            <p>{user.orderQuantity}</p>
-                            <Link to={`${user.id}`}>
-                                <button>Details</button>
-                            </Link>
-                        </div>
+                        <Link to={`${user.id}`} key={user.id}>
+                            <div className={style["order__card--user"]}>
+                                <p>{user.phone}</p>
+                                <p>{user.orderTitle}</p>
+                                <p>{user.orderQuantity}</p>
+                            </div>
+                        </Link>
                     );
                 })}
             </div>

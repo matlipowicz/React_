@@ -1,9 +1,7 @@
-import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
+import { object, string } from "yup";
 import { useFormik, FormikProps } from "formik";
-import { object, string, InferType, ref } from "yup";
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import { useState } from "react";
+import TextField from "@mui/material/TextField";
 import { useTogglePassword } from "./TogglePassword";
 
 type LoginValues = {

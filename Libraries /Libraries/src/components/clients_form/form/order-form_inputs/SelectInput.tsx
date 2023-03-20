@@ -1,8 +1,8 @@
-import { TextField, Box, OutlinedInput } from "@mui/material";
+import { TextField, Box } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
-import { useFormik, FormikProps } from "formik";
-import { SelectValues } from "../../../../api/orders";
-import { ClientCard, getAllClients } from "../../../../api/clients";
+import { FormikProps } from "formik";
+import { SelectValues } from "src/api/orders";
+import { ClientCard, getAllClients } from "src/api/clients";
 import { useState, useEffect } from "react";
 
 export const SelectInput = ({

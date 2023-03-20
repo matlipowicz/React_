@@ -1,5 +1,5 @@
 import style from "./Card.module.css";
-import { FormValuesYup, getAllClients, ClientCard as ClientCardType } from "../../../api/clients";
+
 export interface UserInfo {
     id?: number;
     name: string;

@@ -1,7 +1,7 @@
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import { useFormik, FormikProps } from "formik";
-import { object, string, InferType, ref } from "yup";
+import { object, string, ref } from "yup";
 
 type RegisterValues = {
     name: string;

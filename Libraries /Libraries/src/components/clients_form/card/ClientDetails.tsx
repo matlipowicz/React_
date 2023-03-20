@@ -1,11 +1,9 @@
-import style from "./Card.module.css";
 import { useState, useEffect } from "react";
-import { cards } from "../../../mocks/cards";
 import { Link, useParams } from "react-router-dom";
-import { FormValuesYup, getAllClients, ClientCard as ClientCardType, getClient, deleteClient } from "../../../api/clients";
+import { ClientCard as ClientCardType, getClient, deleteClient } from "src/api/clients";
+import style from "./Card.module.css";
 
 export const ClientDetails = () => {
-    //? How to retrieve id from the card component (passing destructured id value will be undefined)
     const [edit, setEdit] = useState(false);
     const [user, setUser] = useState<ClientCardType | null>(null);
     const { clientId } = useParams();

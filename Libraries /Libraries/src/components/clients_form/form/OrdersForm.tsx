@@ -1,14 +1,8 @@
-import { TextField, Box, OutlinedInput } from "@mui/material";
-import { useFormik, FormikProps } from "formik";
-import MenuItem from "@mui/material/MenuItem";
-import { object, InferType, string, number } from "yup";
-import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { ReactEventHandler, useState } from "react";
 import { SelectInput } from "./order-form_inputs/SelectInput";
 import { TextInput } from "./order-form_inputs/TextInput";
 import { QuantityInput } from "./order-form_inputs/QuantityInput";
-import { SelectValues, orderValidationSchema } from "../../../api/orders";
+import { useFormik } from "formik";
+import { SelectValues, orderValidationSchema } from "src/api/orders";
 
 export const OrdersForm = () => {
     const formik = useFormik<SelectValues>({
