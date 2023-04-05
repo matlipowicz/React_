@@ -1,9 +1,10 @@
 import { TextField, Box } from "@mui/material";
-import { useFormik, FormikProps } from "formik";
+import { useFormik, FormikProps, ErrorMessage } from "formik";
 import style from "./Edit.module.css";
-import { FormValuesYup, schema, editClient, getClient } from "src/api/clients";
+import { FormValuesYup, schema, editClient, getClient, ClientCard } from "src/api/clients";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 const FormInput = ({ inputType, formik, label }: { inputType: keyof FormValuesYup; formik: FormikProps<FormValuesYup>; label: string }) => {
     return (
@@ -22,31 +23,60 @@ const FormInput = ({ inputType, formik, label }: { inputType: keyof FormValuesYu
         </TextField>
     );
 };
-export const EditUser = () => {
-    const [initialValues, setInitialValues] = useState<FormValuesYup>({
-        name: "",
-        surname: "",
-        street: "",
-        postalCode: "",
-        town: "",
-        subRegion: "",
-        imgSrc: "",
-        phoneNumber: "",
-    });
-    const { clientId } = useParams();
 
-    useEffect(() => {
-        if (clientId) {
-            getClient(clientId).then((data) => setInitialValues(data));
-        }
-    }, []);
+export const EditUser = () => {
+    // const [initialValues, setInitialValues] = useState<FormValuesYup>({
+    //     name: "",
+    //     surname: "",
+    //     street: "",
+    //     postalCode: "",
+    //     town: "",
+    //     subRegion: "",
+    //     imgSrc: "",
+    //     phoneNumber: "",
+    // });
+    const { clientId } = useParams();
+    //? Tutaj queryKey musi być takie samo jak dla strony z detalami klienta? Bo jak dawałem inny to musiałem refreshować stronę aby zaszły zmiany. Mógłbyś mi to wyjaśnić
+    const { data, error, isLoading } = useQuery({
+        queryKey: ["clients", clientId],
+        queryFn: () => getClient(clientId as string | number),
+        enabled: !!clientId,
+    });
+
+    // useEffect(() => {
+    //     if (clientId) {
+    //         getClient(clientId).then((data) => setInitialValues(data));
+    //     }
+    // }, []);
+
+    //! Mutation
+
+    const queryClient = useQueryClient();
+
+    const { mutate } = useMutation((data: FormValuesYup): Promise<any> => editClient(data, clientId as string | number), {
+        onSuccess: () => {
+            queryClient.invalidateQueries(["clients"], { exact: true });
+        },
+        onError: () => console.log("Mutation has not been conducted"),
+    });
 
     const formik = useFormik<FormValuesYup>({
-        initialValues: initialValues,
+        initialValues: data || {
+            name: "",
+            surname: "",
+            street: "",
+            postalCode: "",
+            town: "",
+            subRegion: "",
+            imgSrc: "",
+            phoneNumber: "",
+        },
         enableReinitialize: true,
         onSubmit: (values: FormValuesYup) => {
-            editClient(values, clientId as string);
+            return mutate(values);
+            // editClient(values, clientId as string | number);
         },
+
         validationSchema: schema,
     });
 

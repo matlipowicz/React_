@@ -1,0 +1,144 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "imgSrc": "https://images.unsplash.com/photo-1661869535393-872dea2d9f8d?ixlib=rb-1.2.1&ix''=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+      "name": "Zigniew",
+      "surname": "Herbert",
+      "street": "TestStreet",
+      "postCode": "00-123",
+      "town": "Town",
+      "subRegion": "Region",
+      "phoneNumber": "+48 111 456 789"
+    }
+  ],
+  "clients": [
+    {
+      "name": "Paulinka",
+      "surname": "Lipowicz",
+      "street": "lkanflkasnlkf",
+      "postalCode": "11-222",
+      "town": "aslkfmalksfm",
+      "subRegion": "asfasfas",
+      "imgSrc": "",
+      "phoneNumber": "+42 313 232 123",
+      "id": 4
+    },
+    {
+      "name": "Jakub",
+      "surname": "Pustuł",
+      "street": "Maja.5",
+      "postalCode": "42-262",
+      "town": "Poczesna",
+      "subRegion": "Śląsk",
+      "imgSrc": "",
+      "phoneNumber": "+48 232 213 232",
+      "id": 5
+    },
+    {
+      "name": "Mateusz",
+      "surname": "Lipowicz",
+      "street": "Dębowa.4",
+      "postalCode": "42-360",
+      "town": "Poraj",
+      "subRegion": "Śląsk",
+      "imgSrc": "",
+      "phoneNumber": "+48 231 123 132",
+      "id": 6
+    },
+    {
+      "name": "Mateusz",
+      "surname": "Lipowicze",
+      "street": "Dębowa",
+      "postalCode": "11-111",
+      "town": "Test",
+      "subRegion": "Testy",
+      "imgSrc": "",
+      "phoneNumber": "+23 232 232 232",
+      "id": 7
+    },
+    {
+      "name": "Testy",
+      "surname": "Testy",
+      "street": "Testy",
+      "postalCode": "11-111",
+      "town": "Testy",
+      "subRegion": "Testy",
+      "imgSrc": "",
+      "phoneNumber": "+48 232 232 232",
+      "id": 8
+    }
+  ],
+  "orders": [
+    {
+      "phoneNumber": "+48 797 090 551",
+      "orderContent": "dasdadas",
+      "orderQuantity": 3,
+      "orderTitle": "Taaaasssty",
+      "id": 6
+    },
+    {
+      "phoneNumber": "+48 232 231 321",
+      "orderContent": "vzhfkahsjlfas",
+      "orderQuantity": 1,
+      "orderTitle": "fdzvdzvvdasda",
+      "id": 7
+    },
+    {
+      "phoneNumber": "+48 797 090 551",
+      "orderContent": "lazuroweasdas",
+      "orderQuantity": 5,
+      "orderTitle": "Niebieskinasz",
+      "id": 8
+    },
+    {
+      "phoneNumber": "+48 222 333 111",
+      "orderContent": "asdasdasdas",
+      "orderQuantity": 1,
+      "orderTitle": "taaaaaasssss",
+      "id": 9
+    },
+    {
+      "phoneNumber": "+48 232 213 232",
+      "orderContent": "testyt",
+      "orderQuantity": 12,
+      "orderTitle": "testttttttt",
+      "id": 10
+    },
+    {
+      "phoneNumber": "+42 313 232 123",
+      "orderContent": "takitest",
+      "orderQuantity": 11,
+      "orderTitle": "Takiezamowieni",
+      "id": 11
+    },
+    {
+      "phoneNumber": "+42 313 232 123",
+      "orderContent": "tadasdasdsa",
+      "orderQuantity": 12,
+      "orderTitle": "tttttasdasdas",
+      "id": 12
+    },
+    {
+      "phoneNumber": "+48 232 213 232",
+      "orderContent": "tojestmoje",
+      "orderQuantity": 4,
+      "orderTitle": "Taktomojezamowienie",
+      "id": 13
+    },
+    {
+      "phoneNumber": "+48 232 213 232",
+      "orderContent": "asfafasfasf",
+      "orderQuantity": 12,
+      "orderTitle": "safafafasfa",
+      "id": 14
+    },
+    {
+      "phoneNumber": "+48 232 213 232",
+      "orderContent": "asfafasfasf",
+      "orderQuantity": 12,
+      "orderTitle": "safafafasfa",
+      "id": 15
+    }
+  ]
+}

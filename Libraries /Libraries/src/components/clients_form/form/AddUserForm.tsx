@@ -1,6 +1,8 @@
 import { TextField, Box } from "@mui/material";
 import { FormValuesYup, schema, addClient } from "src/api/clients";
 import { useFormik, FormikProps } from "formik";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+
 import style from "./Form.module.css";
 
 const FormInput = ({ inputType, formik, label }: { inputType: keyof FormValuesYup; formik: FormikProps<FormValuesYup>; label: string }) => {
@@ -19,6 +21,12 @@ const FormInput = ({ inputType, formik, label }: { inputType: keyof FormValuesYu
     );
 };
 export const AddUserForm = () => {
+    //? Nie wiem czy to tak powinno działać?
+    const queryClient = useQueryClient();
+    const { mutate } = useMutation({
+        mutationFn: (data: FormValuesYup) => addClient(data),
+        onSuccess: () => queryClient.invalidateQueries(["clients"]),
+    });
     const formik = useFormik<FormValuesYup>({
         initialValues: {
             name: "",
@@ -31,7 +39,7 @@ export const AddUserForm = () => {
             phoneNumber: "",
         },
         onSubmit: (values: FormValuesYup) => {
-            addClient(values);
+            mutate(values);
         },
         validationSchema: schema,
     });

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 import style from "./Orders.module.css";
-import { getAllOrders, getOrderByUser, getOrderByFilter, Order } from "src/api/orders";
+import { getAllOrders, getOrderByOrderName, getOrdersByUserName, Order } from "src/api/orders";
 const Orders = () => {
     const [userOrder, setUserOrder] = useState<Order[]>([]);
     const [searchOrder, setSearchedOrder] = useState("");
@@ -14,7 +14,7 @@ const Orders = () => {
     //* Search order
     const searchOrders = (e: React.FormEvent) => {
         e.preventDefault();
-        getOrderByUser(searchOrder).then((data) => {
+        getOrderByOrderName(searchOrder).then((data) => {
             setUserOrder(data);
             setSearchedOrder("");
         });
@@ -23,7 +23,7 @@ const Orders = () => {
     const filterOrders = (e: React.FormEvent) => {
         const target = e.target as HTMLSelectElement;
 
-        getOrderByFilter(target.value).then((data) => {
+        getOrdersByUserName(target.value).then((data) => {
             setFilteredOrder(target.value);
             setUserOrder(data);
         });
@@ -60,13 +60,16 @@ const Orders = () => {
 
                 <button type="submit">Search</button>
                 <button onClick={resetOrders}>Reset</button>
+                <Link to="add">
+                    <button>Add order</button>
+                </Link>
             </form>
             <div className={style["order__card"]}>
                 {userOrder.map((user) => {
                     return (
                         <Link to={`${user.id}`} key={user.id}>
                             <div className={style["order__card--user"]}>
-                                <p>{user.phone}</p>
+                                <p>{user.phoneNumber}</p>
                                 <p>{user.orderTitle}</p>
                                 <p>{user.orderQuantity}</p>
                             </div>

@@ -8,7 +8,7 @@ export const TextInput = ({ type, formik, label }: { label: string; type: keyof 
                 id={type}
                 name={type}
                 label={label}
-                value={formik.values[type]}
+                value={formik.values[type] || ""}
                 onChange={formik.handleChange}
                 fullWidth
                 error={Boolean(formik.touched[type]) && Boolean(formik.errors[type])}

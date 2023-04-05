@@ -10,35 +10,47 @@ import { FakeRegister } from "./components/register/FakeRegister";
 import { FakeLogin } from "./components/login/FakeLogin";
 import { EditUser } from "./components/clients_form/edit_user/Edit";
 import { OrderDetails } from "./components/orders/OrderDetails";
+import { QueryClient, QueryClientProvider, QueryCache } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const queryClient = new QueryClient({
+    queryCache: new QueryCache(),
+    defaultOptions: {
+        queries: {
+            staleTime: 50_000,
+        },
+    },
+});
 
 function App() {
-    //? Możemy tutaj uzyć useRoutes()? Jeżeli są jakieś chlid-y i jest to generowane z tablicy, to chyba tak?
-
     return (
-        <BrowserRouter>
-            <AsideMenu />
-            <Routes>
-                <Route path="/" element={<FakeLogin />} />
-                <Route path="/clients">
-                    <Route index element={<Clients />} />
-                    <Route path="add" element={<AddUserForm />} />
-                    <Route path=":clientId">
-                        <Route index element={<ClientDetails />} />
-                        <Route path="edit" element={<EditUser />} />
+        <QueryClientProvider client={queryClient}>
+            {<ReactQueryDevtools position="bottom-right" initialIsOpen={false} />}
+            <BrowserRouter>
+                <AsideMenu />
+                <Routes>
+                    <Route path="/" element={<FakeLogin />} />
+                    <Route path="/clients">
+                        <Route index element={<Clients />} />
+                        <Route path="add" element={<AddUserForm />} />
+                        <Route path=":clientId">
+                            <Route index element={<ClientDetails />} />
+                            <Route path="edit" element={<EditUser />} />
+                        </Route>
                     </Route>
-                </Route>
-                <Route path="/orders">
-                    <Route index element={<Orders />} />
-                    <Route path="add" element={<OrdersForm />} />
-                    {/* @ts-ignore */}
-                    <Route path=":orderId" element={<OrderDetails />} />
-                </Route>
-                <Route path="/register" element={<FakeRegister />} />
-                <Route path="/invoices" element={<Invoices />} />
-                <Route path="/posts" element={<Posts />} />
-                <Route path="*" element={<div className="page">404 - Not Found</div>} />
-            </Routes>
-        </BrowserRouter>
+                    <Route path="/orders">
+                        <Route index element={<Orders />} />
+                        <Route path="add" element={<OrdersForm />} />
+                        {/* @ts-ignore */}
+                        <Route path=":orderId" element={<OrderDetails />} />
+                    </Route>
+                    <Route path="/register" element={<FakeRegister />} />
+                    <Route path="/invoices" element={<Invoices />} />
+                    <Route path="/posts" element={<Posts />} />
+                    <Route path="*" element={<div className="page">404 - Not Found</div>} />
+                </Routes>
+            </BrowserRouter>
+        </QueryClientProvider>
     );
 }
 
