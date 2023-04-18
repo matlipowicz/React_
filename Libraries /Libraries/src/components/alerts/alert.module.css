@@ -1,0 +1,15 @@
+.alert-error {
+  background-color: red;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.alert-success {
+  background-color: green;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

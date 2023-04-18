@@ -1,4 +1,4 @@
-import { BsFillPeopleFill, BsFillBagCheckFill, BsFillFileEarmarkRuledFill, BsFillHddRackFill, BsPersonFillAdd } from "react-icons/bs";
+import { BsFillBagCheckFill, BsFillFileEarmarkRuledFill, BsFillHddRackFill, BsFillPeopleFill } from "react-icons/bs";
 
 export const menuData = [
     {

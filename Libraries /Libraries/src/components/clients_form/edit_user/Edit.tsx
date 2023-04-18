@@ -52,10 +52,10 @@ export const EditUser = () => {
     //! Mutation
 
     const queryClient = useQueryClient();
-
-    const { mutate } = useMutation((data: FormValuesYup): Promise<any> => editClient(data, clientId as string | number), {
+    // TODO: popraw any w promise
+    const { mutate } = useMutation((data: FormValuesYup) => editClient(data, clientId as string | number), {
         onSuccess: () => {
-            queryClient.invalidateQueries(["clients"], { exact: true });
+            queryClient.invalidateQueries(["clients"]);
         },
         onError: () => console.log("Mutation has not been conducted"),
     });
