@@ -1,58 +1,56 @@
-import { useAuthContext } from 'src/contexts/context/LoginAuthContext';
 import { Link } from 'react-router-dom';
-import { object, string } from 'yup';
-import { useFormik, FormikProps } from 'formik';
 import TextField from '@mui/material/TextField';
-import { useTogglePassword } from './TogglePassword';
+import { FormikProps, useFormik } from 'formik';
+import { useAuthContext } from 'src/contexts/context/LoginAuthContext';
+import { object, string } from 'yup';
+
 import { UserAvatar } from './user_avatar/UserAvatar';
+import { useTogglePassword } from './TogglePassword';
 
 type LoginValues = {
   login: string;
   password: string;
 };
 
+// TODO: change type
 const LoginInput = ({
   label,
   formik,
   inputValue,
   type,
 }: {
-  label: string;
   formik: FormikProps<LoginValues>;
   inputValue: keyof LoginValues;
+  label: string;
   type: any;
-}) => {
-  return (
-    <>
-      {type === 'password' ? (
-        <TextField
-          style={{ width: '100%' }}
-          type='password'
-          id={inputValue}
-          name={inputValue}
-          label={label}
-          onChange={formik.handleChange}
-          value={formik.values[inputValue]}
-        />
-      ) : (
-        <TextField
-          style={{ width: '100%' }}
-          id={inputValue}
-          name={inputValue}
-          label={label}
-          onChange={formik.handleChange}
-          value={formik.values[inputValue]}
-          error={Boolean(formik.touched[inputValue]) && Boolean(formik.errors[inputValue])}
-          helperText={
-            formik.touched[inputValue] && formik.errors[inputValue]
-              ? formik.errors[inputValue]
-              : null
-          }
-        ></TextField>
-      )}
-    </>
-  );
-};
+}) => (
+  <>
+    {type === 'password' ? (
+      <TextField
+        style={{ width: '100%' }}
+        type='password'
+        id={inputValue}
+        name={inputValue}
+        label={label}
+        onChange={formik.handleChange}
+        value={formik.values[inputValue]}
+      />
+    ) : (
+      <TextField
+        style={{ width: '100%' }}
+        id={inputValue}
+        name={inputValue}
+        label={label}
+        onChange={formik.handleChange}
+        value={formik.values[inputValue]}
+        error={Boolean(formik.touched[inputValue]) && Boolean(formik.errors[inputValue])}
+        helperText={
+          formik.touched[inputValue] && formik.errors[inputValue] ? formik.errors[inputValue] : null
+        }
+      />
+    )}
+  </>
+);
 //! yup
 const LoginSchema = object({
   login: string()

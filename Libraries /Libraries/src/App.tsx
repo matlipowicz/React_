@@ -4,10 +4,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryCache, QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { NotificationAlert } from 'src/components/alerts/NotificationAlert';
+import ErrorBoundary from 'src/components/errors/ErrorBoundary';
+import MultiStepForm from 'src/components/multistep_form/MultiStepForm';
+import { InvoicesContextProvider } from 'src/contexts/context/InvoicesContext';
 import { AuthProvider } from 'src/contexts/context/LoginAuthContext';
 import { NotificationProvider } from 'src/contexts/context/NotificationContext';
 import { ThemeProvider } from 'src/contexts/context/ThemeContext';
-import ErrorBoundary from 'src/errors/ErrorBoundary';
 
 import { AsideMenu } from './components/aside_menu/AsideMenu';
 import { ClientDetails } from './components/clients_form/card/ClientDetails';
@@ -44,40 +46,45 @@ const App = () => (
             <QueryClientProvider client={queryClient}>
               {<ReactQueryDevtools position='bottom-right' initialIsOpen={false} />}
               <Suspense fallback={<h1>Loading...</h1>}>
-                <BrowserRouter>
-                  <AsideMenu />
-                  <NotificationAlert />
-                  <Routes>
-                    <Route path='/' element={<FakeLogin />} />
-                    <Route path='/clients'>
-                      <Route index element={<Clients />} />
-                      <Route path='add' element={<AddUserForm />} />
-                      <Route path=':clientId'>
-                        <Route index element={<ClientDetails />} />
-                        <Route path='edit' element={<EditUser />} />
+                <InvoicesContextProvider>
+                  <BrowserRouter>
+                    <AsideMenu />
+                    <NotificationAlert />
+                    <Routes>
+                      <Route path='/' element={<FakeLogin />} />
+                      <Route path='/clients'>
+                        <Route index element={<Clients />} />
+                        <Route path='add' element={<AddUserForm />} />
+                        <Route path=':clientId'>
+                          <Route index element={<ClientDetails />} />
+                          <Route path='edit' element={<EditUser />} />
+                        </Route>
                       </Route>
-                    </Route>
-                    <Route path='/orders'>
-                      <Route index element={<Orders />} />
-                      <Route path='add' element={<OrdersForm />} />
+                      <Route path='/orders'>
+                        <Route index element={<Orders />} />
+                        <Route path='add' element={<OrdersForm />} />
 
-                      <Route path=':orderId' element={<OrderDetails />} />
-                    </Route>
-                    <Route path='/register' element={<FakeRegister />} />
+                        <Route path=':orderId' element={<OrderDetails />} />
+                      </Route>
+                      <Route path='/register' element={<FakeRegister />} />
 
-                    <Route
-                      path='/invoices'
-                      element={
-                        <ProtectProvider>
-                          <Invoices />
-                        </ProtectProvider>
-                      }
-                    />
+                      <Route path='/invoices'>
+                        <Route
+                          index
+                          element={
+                            <ProtectProvider>
+                              <Invoices />
+                            </ProtectProvider>
+                          }
+                        />
+                        <Route path='add' element={<MultiStepForm />} />
+                      </Route>
 
-                    <Route path='/posts' element={<Posts />} />
-                    <Route path='*' element={<div className='page'>404 - Not Found</div>} />
-                  </Routes>
-                </BrowserRouter>
+                      <Route path='/posts' element={<Posts />} />
+                      <Route path='*' element={<div className='page'>404 - Not Found</div>} />
+                    </Routes>
+                  </BrowserRouter>
+                </InvoicesContextProvider>
               </Suspense>
             </QueryClientProvider>
           </ErrorBoundary>

@@ -51,7 +51,7 @@
     "react/react-in-jsx-scope": "off",
     //TODO - sprawdz unused imports
     //* Disabled no-empty-function
-    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "error",
     "@typescript-eslint/no-unused-vars": "error",
     "unused-imports/no-unused-imports": "error",
     "react/no-array-index-key": "warn",

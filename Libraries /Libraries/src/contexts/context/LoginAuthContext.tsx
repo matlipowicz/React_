@@ -24,7 +24,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   };
 
   function registeredUsers() {
-    const users = JSON.parse(localStorage.getItem('accounts')!);
+    const users = JSON.parse(localStorage.getItem('accounts') as string);
+    if (!users) return [];
     return users as RegisterValues[];
   }
   //! Login

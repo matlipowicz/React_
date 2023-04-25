@@ -14,6 +14,7 @@ export const schema = object({
   postalCode: string()
     .required('Enter zip code')
     .matches(/^[0-9]{2}-[0-9]{3}$/),
+
   town: string().required('Enter the City').min(3),
   subRegion: string().optional(),
   imgSrc: string().optional(),

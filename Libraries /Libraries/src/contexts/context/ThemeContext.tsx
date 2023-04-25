@@ -4,16 +4,12 @@ type ThemeContextType = {
   themeVersion: string;
   toggleTheme: () => void;
 };
+// TODO: Ogarnij Record w TS
+type ThemeObj = Record<'background-color' | 'button-main', string>;
 
 interface ThemeInterface {
-  dark: {
-    'background-color': string;
-    'button-main': string;
-  };
-  light: {
-    'background-color': string;
-    'button-main': string;
-  };
+  dark: ThemeObj;
+  light: ThemeObj;
 }
 const themes: ThemeInterface = {
   dark: {
@@ -26,19 +22,16 @@ const themes: ThemeInterface = {
   },
 };
 
-export const ThemeContext = createContext<ThemeContextType>({
-  themeVersion: 'light',
-  toggleTheme: () => {},
-});
+export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const [themeVersion, setThemeVersion] = useState<keyof ThemeInterface>('light');
   const [theme, setTheme] = useState(themes[themeVersion]);
 
   //? Nie wiem jak typ tutaj dać
-  const setCSSVariables = (theme: any) => {
+  const setCSSVariables = (theme: ThemeObj) => {
     for (const value in theme) {
-      document.documentElement.style.setProperty(`--${value}`, theme[value]);
+      document.documentElement.style.setProperty(`--${value}`, theme[value as keyof typeof theme]);
     }
   };
   useEffect(() => {
