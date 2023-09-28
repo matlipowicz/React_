@@ -18,7 +18,7 @@ export const InvoicesContextProvider = ({ children }: { children: React.ReactNod
     // FIND and FILTER ORDERS
     const findOrder = orderData?.find((order) => order.id === id) as Order;
     const findExistingOrder = invoiceArray.includes(findOrder);
-    // TODO: Rozwiązać problem z saveOrder
+
     if (!findExistingOrder) setInvoiceArray((prev) => [...prev, findOrder]);
   }
 

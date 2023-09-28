@@ -11,19 +11,3 @@ Na podstronie invoices/add stwórz formularz wielokrokowy:
 
 Podpowiedź:
 Przyda się też modyfikacja bazy aby zapisywać które zamówienia są opłacone a które nie
-
-//PROBLEMS_TO_SOLVE
-
-1. Jak dodać klientów do danego inputa, aby go wybrać i jak wyświetlić dane wybranego klienta?
-2. Jak wyświetlić zamówienia klienta w kroku drugim? Jak przenieść te dane?
-3. W kroku trzecim z wyświetlonymi danymi klienta i jego zakupami. Trzeba dodać input na cene i zakres dat spłaty faktury
-   - jak stworzyć walidację dla faktury i schemat w bazie danych?
-4. Jak stworzyć kilka "stron", etapów formularza i wymianę danych między nimi
-5. Czy warto wykorzystać useReducera do manipulacji stanem, czy wystarczy prosty useState?
-
-//TODO:
-
-1. Stworzenie stanu dla danego kroku + funkcje do przełączania się miedzy krokami (back i next),
-2. Stworzenie trzech komponentów, które będą wyświetlane w zależności od stanu kroku (utworzyć odpowiednie inputy i walidację),
-3. Stworzyć metodę zapisującą fakturę dla danego klienta w bazie danych o zadanym schemacie.
-4. Stworzyć też możliwość modyfikacji danych w bazie, z określeniem, która faktura jest opłacona

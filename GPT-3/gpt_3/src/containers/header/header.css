@@ -1,0 +1,112 @@
+/* !LEFT SIDE */
+
+.gpt3__header {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 5rem;
+    color: var(--text-color);
+}
+
+.gpt3__header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.gpt3__header-left--heading {
+    font-size: clamp(2.4rem, 10vw, 6.2rem);
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gpt3__header-left--paragraph {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+}
+
+.gpt3__header-left--form {
+    display: flex;
+}
+
+.gpt3__header-left--input {
+    background-color: var(--input-color);
+    padding: 1.5rem 2.5rem;
+    flex: 0.6;
+    width: 100%;
+    border: none;
+    border-radius: 0 0.2rem 0.2rem 0;
+    color: var(--navbar-color);
+}
+
+.gpt3__header-left--input::placeholder {
+    color: var(--placeholder-color);
+}
+
+.gpt3__header-left--btn {
+    background-color: var(--orange-btn-color);
+    border: none;
+    color: var(--navbar-color);
+    padding: 1.5rem 2.5rem;
+    border-radius: 0 0.2rem 0.2rem 0;
+    cursor: pointer;
+}
+
+.gpt3__header-left--users {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.gpt3__header-left--people {
+}
+
+.gpt3__header-left--quantity {
+    color: var(--navbar-color);
+    font-size: 1.2rem;
+}
+
+/* !RIGHT SIDE */
+
+.gpt3__header-right {
+}
+
+.gpt3__header-right--img {
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    object-fit: cover;
+    padding: 2rem;
+}
+
+@media screen and (max-width: 1050px) {
+    .gpt3__header {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .gpt3__header-left--form {
+        justify-content: center;
+    }
+
+    .gpt3__header-left--input {
+        background-color: var(--input-color);
+        padding: 1.5rem 2.5rem;
+        flex: 0.8;
+        width: 100%;
+        border: none;
+        border-radius: 0 0.2rem 0.2rem 0;
+        color: var(--navbar-color);
+    }
+
+    .gpt3__header-left--btn {
+        background-color: var(--orange-btn-color);
+        border: none;
+        color: var(--navbar-color);
+        padding: 1.5rem 1.8rem;
+        border-radius: 0 0.2rem 0.2rem 0;
+        cursor: pointer;
+    }
+}

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
+import { UserAvatar } from 'src/components/login/user_avatar/UserAvatar';
 import Home from 'src/components/pages/Home';
 import { useThemeContext } from 'src/contexts/context/ThemeContext';
 import { menuData } from 'src/mocks/menu';
@@ -59,8 +60,8 @@ export const AsideMenu = () => {
           </ul>
           {/* <CustomizedSwitches /> */}
           <button onClick={toggleTheme}>Toggle theme</button>
+          <UserAvatar />
         </nav>
-
         <Outlet />
       </aside>
     </>

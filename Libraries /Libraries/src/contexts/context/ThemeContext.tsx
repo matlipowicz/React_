@@ -4,7 +4,7 @@ type ThemeContextType = {
   themeVersion: string;
   toggleTheme: () => void;
 };
-// TODO: Ogarnij Record w TS
+
 type ThemeObj = Record<'background-color' | 'button-main', string>;
 
 interface ThemeInterface {

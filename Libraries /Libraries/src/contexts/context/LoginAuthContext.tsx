@@ -20,7 +20,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const addUser = (values: RegisterValues) => {
     setRegisterUser((prev) => [...prev, values]);
-    //TODO error daj
   };
 
   function registeredUsers() {
@@ -39,7 +38,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   function logOut() {
-    // console.log('User logged out');
     setCurrentUser(undefined);
     setAuth(false);
   }
@@ -59,7 +57,6 @@ export const useAuthContext = () => {
   const ctx = useContext(AuthContext);
 
   if (!ctx) {
-    // poza komponentem zwróci nulla
     throw new Error("Missing AuthContext, it's not wrapped in ThemeProvider");
   }
   return ctx;

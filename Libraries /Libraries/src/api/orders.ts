@@ -2,6 +2,7 @@ import { InferType, object, string } from 'yup';
 //! Orders functionality
 
 export type SelectValues = {
+  invoicePaymentStatus: boolean;
   orderContent: string;
   orderQuantity: string;
   orderTitle: string;
@@ -36,6 +37,23 @@ export const addOrder = async (values: User) => {
   }
 
   throw new Error("Can't add an order");
+};
+
+export const editOrder = async (orderId: Array<string | number>) => {
+  orderId.forEach(async (order_id) => {
+    const response = await fetch(`${base_url}/orders/${order_id}`, {
+      method: 'PATCH',
+      headers: { 'Content-type': 'application/json;charset=UTF-8' },
+      body: JSON.stringify({ invoicePaymentStatus: true }),
+    });
+    console.log(response);
+    if (response.ok) {
+      const data = response.json();
+
+      return data;
+    }
+    throw new Error("Can't edit an order");
+  });
 };
 
 export const getAllOrders = async () => {

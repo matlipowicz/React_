@@ -1,0 +1,118 @@
+.gpt3__navbar-container {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+    gap: 4rem;
+}
+
+.gpt3__navbar-logo {
+    margin-right: 2rem;
+    color: var(--navbar-color);
+    flex: 1.1;
+}
+.gpt3__navbar {
+    display: flex;
+    margin-right: 5rem;
+}
+
+.gpt3__menu {
+    display: none;
+}
+
+.gpt3__navbar-active {
+}
+
+.gpt3__navbar-ul {
+    display: flex;
+    gap: 5rem;
+    list-style: none;
+}
+
+.gpt3__navbar-link {
+    color: var(--navbar-color);
+    text-decoration: none;
+}
+
+.gpt3__sign-buttons {
+    display: flex;
+}
+
+.gpt3__sign-in {
+    background-color: transparent;
+    border: none;
+    color: var(--navbar-color);
+    padding: 1.5rem 2.5rem;
+}
+
+.gpt3__sign-up {
+    background-color: var(--orange-btn-color);
+    border: none;
+    color: var(--navbar-color);
+    padding: 1.5rem 2.5rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.gpt3__logo {
+    height: 1.6rem;
+    width: 6.25rem;
+}
+
+.gpt3__navbar-link,
+.gpt3__sign-in,
+.gpt3__sign-up {
+    font-family: var(--font-family);
+    font-size: clamp(1rem, 20vw, 1.8rem);
+    font-weight: 500;
+    line-height: 2.5rem;
+}
+
+@media screen and (max-width: 1050px) {
+    .gpt3__navbar {
+        display: none;
+    }
+
+    .gpt3__menu {
+        display: block;
+    }
+
+    .gpt3__navbar-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: absolute;
+        top: 8rem;
+        right: calc(8rem - 2%);
+        padding: 3rem;
+        background-color: var(--input-color);
+    }
+    .gpt3__navbar-li {
+        list-style: none;
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .gpt3__sign-buttons {
+        display: none;
+    }
+
+    .gpt3__sign-menu-buttons {
+        margin-top: 2rem;
+    }
+
+    .gpt3__navbar-menu {
+        right: calc(8rem - 10%);
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .gpt3__sign-menu-buttons {
+        display: none;
+    }
+
+    .gpt3__sign-buttons {
+        display: flex;
+    }
+}

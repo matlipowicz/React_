@@ -25,7 +25,6 @@ const MultiStepForm = () => {
     setData((prev) => ({ ...prev, ...invoiceFields }));
   }
 
-  // TODO: Opisz sobie co to jest Spread Attributres
   const { currentStepNumber, nextStep, previousStep, steps, maxStep } = useMultiStepForm([
     <StepOne key='1' {...data} updateForm={updateFormState} />,
     <StepTwo key='2' {...data} updateForm={updateFormState} />,

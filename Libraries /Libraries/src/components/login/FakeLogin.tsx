@@ -1,3 +1,4 @@
+import { HTMLInputTypeAttribute } from 'react';
 import { Link } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import { FormikProps, useFormik } from 'formik';
@@ -12,7 +13,6 @@ type LoginValues = {
   password: string;
 };
 
-// TODO: change type
 const LoginInput = ({
   label,
   formik,
@@ -22,7 +22,7 @@ const LoginInput = ({
   formik: FormikProps<LoginValues>;
   inputValue: keyof LoginValues;
   label: string;
-  type: any;
+  type: HTMLInputTypeAttribute | JSX.Element;
 }) => (
   <>
     {type === 'password' ? (

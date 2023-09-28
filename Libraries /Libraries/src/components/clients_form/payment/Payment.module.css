@@ -1,0 +1,15 @@
+.deposit-form,
+.withdraw-form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+input {
+  border-width: 3px;
+  padding: 10px;
+  border: none;
+}
+input.deposit-error {
+  border: thin solid #fc8181;
+}
