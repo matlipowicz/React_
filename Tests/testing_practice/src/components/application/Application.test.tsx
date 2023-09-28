@@ -21,7 +21,9 @@ describe("Application query getBy methods", () => {
         const checkboxElement = screen.getByRole("checkbox");
         expect(checkboxElement).toBeInTheDocument();
 
-        const buttonElement = screen.getByRole("button");
+        const buttonElement = screen.getByRole("button", {
+            name: "Submit",
+        });
         expect(buttonElement).toBeInTheDocument();
 
         const headingJob = screen.getByRole("heading", {
